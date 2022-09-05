@@ -1,0 +1,22 @@
+.color {
+ border: black solid 1px;
+ display: inline-block;
+ width: 80px;
+ height: 80px;
+}
+
+#cor1{
+ background-color: blue;
+}
+
+#cor2{
+ background-color: green;
+}
+
+#cor3{
+ background-color: purple;
+}
+
+#cor4{
+ background-color: gray;
+}
