@@ -1,5 +1,5 @@
-let secaoPaletaCores = document.getElementById('color-palette');
-let divPaletaCores = document.getElementsByClassName('color');
+const secaoPaletaCores = document.getElementById('color-palette');
+const divPaletaCores = document.getElementsByClassName('color');
 
-console.log (secaoPaletaCores);
-console.log (divPaletaCores);
+console.log(secaoPaletaCores);
+console.log(divPaletaCores);
