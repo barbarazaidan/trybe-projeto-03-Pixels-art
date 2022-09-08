@@ -1,17 +1,17 @@
 * {
- margin: 0;
- padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
- margin: 20px;
+  margin: 20px;
 }
 
 .color {
   border: black solid 1px;
   display: inline-block;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
 }
 
 #cor1 {
@@ -37,18 +37,17 @@ h1 {
   padding: 10px;
 }
 
-.pixel {
-  border: black solid 0.3px;
-  width: 80px;
-  height: 80px;
-  background-color: white;
-}
-
-.coluna-pixels {
-  display:inline-block; 
-}
-
-#coluna1 {
+#pixel-board {
+  height:max-content;
+  width:max-content;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
   margin-left: 20px;
 }
 
+.pixel {
+  border: black solid 1px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+}

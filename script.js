@@ -41,16 +41,10 @@ if (paletaSalva !== null) {
   divCor4.style.backgroundColor = paletaSalva.paleta4;
 }
 
-let secaoPixels; // Por que dá undefined quando coloco dentro do for?
-for (let index2 = 1; index2 < 5; index2 += 1) {
-  secaoPixels = document.createElement('section');
-  secaoPixels.className = 'coluna-pixels';
-  quadroPixels.appendChild(secaoPixels);
-  for (let index3 = 1; index3 < 6; index3 += 1) {
-   let divPixels = document.createElement('div');
-   divPixels.className = 'pixel';
-   secaoPixels.appendChild(divPixels);
+let divPixels; // Por que dá undefined quando coloco dentro do for?
+for (let index2 = 1; index2 <= 20; index2 += 1) {
+  divPixels = document.createElement('div');
+  divPixels.className = 'pixel';
+  quadroPixels.appendChild(divPixels);
   }
-}
-
-console.log (secaoPixels)
+  
