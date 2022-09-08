@@ -38,8 +38,8 @@ h1 {
 }
 
 #pixel-board {
-  height:max-content;
-  width:max-content;
+  height: max-content;
+  width: max-content;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   margin-left: 20px;

@@ -1,6 +1,7 @@
 const secaoPaletaCores = document.getElementById('color-palette');
 const divPaletaCores = document.getElementsByClassName('color');
 const botaoCores = document.getElementById('button-random-color');
+const divCor1 = document.getElementById('cor1');
 const divCor2 = document.getElementById('cor2');
 const divCor3 = document.getElementById('cor3');
 const divCor4 = document.getElementById('cor4');
@@ -46,5 +47,4 @@ for (let index2 = 1; index2 <= 20; index2 += 1) {
   divPixels = document.createElement('div');
   divPixels.className = 'pixel';
   quadroPixels.appendChild(divPixels);
-  }
-  
+}
