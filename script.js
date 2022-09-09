@@ -48,3 +48,22 @@ for (let index2 = 1; index2 <= 20; index2 += 1) {
   divPixels.className = 'pixel';
   quadroPixels.appendChild(divPixels);
 }
+
+function selecionandoCorDaPaleta(evento) {
+ let cor = evento.target;
+ // console.log (cor.tagName);
+ if (cor.tagName === 'DIV') {
+ cor.classList.add('selected');
+ }
+ // console.log(cor);
+ for (let index3 = 0; index3 < divPaletaCores.length; index3 += 1) {
+  // console.log (divPaletaCores[index3]);
+  if (cor !== divPaletaCores[index3]) {
+   divPaletaCores[index3].classList.remove('selected');
+  }
+ }
+}
+
+let corSelecionada = secaoPaletaCores.addEventListener('click', selecionandoCorDaPaleta);
+
+
