@@ -6,14 +6,18 @@ const divCor2 = document.getElementById('cor2');
 const divCor3 = document.getElementById('cor3');
 const divCor4 = document.getElementById('cor4');
 const quadroPixels = document.getElementById('pixel-board');
-const pixelDoQuadro = document.getElementsByClassName('pixel');
-let corComSelected = document.getElementsByClassName('selected');
+const corComSelected = document.getElementsByClassName('selected');
+const botaoLimpar = document.getElementById('clear-board');
+const quadrados = document.getElementsByClassName('pixel');
 
+// const pixelDoQuadro = document.getElementsByClassName('pixel');
 // console.log(secaoPaletaCores);
 // console.log(divPaletaCores);
 // console.log(botaoCores);
 // console.log(divCor2);
 // console.log (pixelDoQuadro);
+// console.log(botaoLimpar);
+console.log(quadrados);
 
 divCor1.style.backgroundColor = 'black';
 divCor2.style.backgroundColor = 'deeppink';
@@ -42,6 +46,7 @@ function coresAleatorias() {
 }
 
 const botaoDoClick = botaoCores.addEventListener('click', coresAleatorias);
+
 const paletaSalva = JSON.parse(localStorage.getItem('colorPalette'));
 // console.log (paletaSalva);
 
@@ -59,7 +64,7 @@ for (let index2 = 1; index2 <= 20; index2 += 1) {
 }
 
 function selecionandoCorDaPaleta(evento) {
-  let cor = evento.target;
+  const cor = evento.target;
   // console.log (cor.tagName);
   if (cor.tagName === 'DIV') {
     cor.classList.add('selected');
@@ -74,13 +79,21 @@ function selecionandoCorDaPaleta(evento) {
 }
 
 function pintandoQuadro(evento) {
-  let quadroSelecionado = evento.target;
+  const quadroSelecionado = evento.target;
   // console.log(corComSelected[0])
   let corAtual = corComSelected[0].style.backgroundColor;
   // console.log (corAtual);
   quadroSelecionado.style.backgroundColor = corAtual;
 }
 
-let corSelecionada = secaoPaletaCores.addEventListener('click', selecionandoCorDaPaleta);
+function limparQuadro() {
+  for (let contador = 0; contador < quadrados.length; contador += 1) {
+   quadrados[contador].style.backgroundColor = 'white';
+  }
+}
 
-let pintar = quadroPixels.addEventListener('click', pintandoQuadro);
+const corSelecionada = secaoPaletaCores.addEventListener('click', selecionandoCorDaPaleta);
+
+const pintar = quadroPixels.addEventListener('click', pintandoQuadro);
+
+const limpar = botaoLimpar.addEventListener('click', limparQuadro);

@@ -15,19 +15,23 @@ h1 {
 }
 
 #cor1 {
+
   /* background-color: rgb(0, 0, 0); */
   margin-left: 20px;
 }
 
 #cor2 {
+
   /* background-color: green; */
 }
 
 #cor3 {
+
   /* background-color: purple; */
 }
 
 #cor4 {
+ 
   /* background-color: gray; */
 }
 
@@ -42,7 +46,8 @@ h1 {
   width: max-content;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
-  margin-left: 20px;
+  margin: 0 0 30px 20px;
+  mar
 }
 
 .pixel {
@@ -50,4 +55,10 @@ h1 {
   width: 40px;
   height: 40px;
   background-color: white;
+}
+
+#clear-board {
+ margin-left: 20px;
+ font-size: medium;
+ padding: 10px;
 }
