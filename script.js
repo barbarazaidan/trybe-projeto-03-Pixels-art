@@ -17,7 +17,7 @@ const quadrados = document.getElementsByClassName('pixel');
 // console.log(divCor2);
 // console.log (pixelDoQuadro);
 // console.log(botaoLimpar);
-console.log(quadrados);
+// console.log(quadrados);
 
 divCor1.style.backgroundColor = 'black';
 divCor2.style.backgroundColor = 'deeppink';
@@ -60,6 +60,7 @@ let divPixels; // Por que dá undefined quando coloco dentro do for?
 for (let index2 = 1; index2 <= 20; index2 += 1) {
   divPixels = document.createElement('div');
   divPixels.className = 'pixel';
+  backgroundColor = 'white';
   quadroPixels.appendChild(divPixels);
 }
 
@@ -97,3 +98,18 @@ const corSelecionada = secaoPaletaCores.addEventListener('click', selecionandoCo
 const pintar = quadroPixels.addEventListener('click', pintandoQuadro);
 
 const limpar = botaoLimpar.addEventListener('click', limparQuadro);
+
+// const quadroCompletoSalvo = JSON.parse(localStorage.getItem('pixelBoard'));
+
+console.log(quadroPixels.innerHTML);
+console.log(quadrados[0].style.backgroundColor);
+
+const quadroPintado = Object.assign({}, quadrados);
+localStorage.setItem('pixelBoard', JSON.stringify(quadroPintado));
+//console.log(quadroPintado.innerHtml) 
+ 
+for (let contador = 0; contador < quadrados.length; contador += 1) {
+  console.log(quadrados[contador].innerHTML);
+}
+
+
