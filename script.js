@@ -85,28 +85,29 @@ function pintandoQuadro(evento) {
   let corAtual = corComSelected[0].style.backgroundColor;
   // console.log (corAtual);
   quadroSelecionado.style.backgroundColor = corAtual;
-  let arrayDeCores = []; // criei um array para salvar as cores de cada quadrado
+  const arrayDeCores = []; // criei um array para salvar as cores de cada quadrado
   for (let contar = 0; contar < quadrados.length; contar += 1) {
-   //console.log(quadrados[contar].style.backgroundColor);
-   // se eu colocar esse for fora da função, ela só vai ler uma vez e vai ler os quadrados com as cores iniciais, que é tudo branco. Ele precisa estar na função do pintar, porque assim a cada quadrado pintado, ele fará uma nova verificação nas cores.
+    // console.log(quadrados[contar].style.backgroundColor);
+    // se eu colocar esse for fora da função, ela só vai ler uma vez e vai ler os quadrados com as cores iniciais, que é tudo branco. Ele precisa estar na função do pintar, porque assim a cada quadrado pintado, ele fará uma nova verificação nas cores.
    arrayDeCores.push(quadrados[contar].style.backgroundColor); // aqui a cada nova iteração, o for irá verificar todos os quadrados e recriar o array com as cores atualizadas
   }
-  //console.log(arrayDeCores);
+  // console.log(arrayDeCores);
   localStorage.setItem('pixelBoard', JSON.stringify(arrayDeCores));
- }
+}
 
 const boardColorido = JSON.parse(localStorage.getItem('pixelBoard'));
 console.log(boardColorido);// só aparece quando atualizo a página
 
 if (boardColorido !== null) {
   for (let cont = 0; cont < quadrados.length; cont += 1) {
-   quadrados[cont].style.backgroundColor = boardColorido[cont];
+    quadrados[cont].style.backgroundColor = boardColorido[cont];
   }
-} //  aqui que eu, de fato, atribuo as cores salvas ao quadro, do contrário ela fica salva no localStorage, mas eu não atribuo a informação à nada quando atualizo a página
+} //  aqui é onde eu, de fato, atribuo as cores salvas ao quadro, do contrário ela fica salva no localStorage, mas eu não atribuo a informação à nada quando atualizo a página
 
 function limparQuadro() {
   for (let contador = 0; contador < quadrados.length; contador += 1) {
-   quadrados[contador].style.backgroundColor = 'white';
+    quadrados[contador].style.backgroundColor = 'white';
+    localStorage.removeItem('pixelBoard'); // aqui ele apaga o local storage que tem a chave pixelBoard e mantém o quadro limpo caso a pessoa recarregue
   }
 }
 
@@ -115,6 +116,3 @@ const corSelecionada = secaoPaletaCores.addEventListener('click', selecionandoCo
 const pintar = quadroPixels.addEventListener('click', pintandoQuadro);
 
 const limpar = botaoLimpar.addEventListener('click', limparQuadro);
-
-
-
