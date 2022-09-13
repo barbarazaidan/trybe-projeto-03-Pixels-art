@@ -50,7 +50,7 @@ const botaoDoClick = botaoCores.addEventListener('click', coresAleatorias);
 const paletaSalva = JSON.parse(localStorage.getItem('colorPalette'));
 // console.log (paletaSalva);
 
-if (paletaSalva !== null) {
+if (paletaSalva !== null) { // é aqui que eu, de fato, atribuo as cores aleatórias à paleta
   divCor2.style.backgroundColor = paletaSalva.paleta2;
   divCor3.style.backgroundColor = paletaSalva.paleta3;
   divCor4.style.backgroundColor = paletaSalva.paleta4;
@@ -85,7 +85,24 @@ function pintandoQuadro(evento) {
   let corAtual = corComSelected[0].style.backgroundColor;
   // console.log (corAtual);
   quadroSelecionado.style.backgroundColor = corAtual;
-}
+  let arrayDeCores = []; // criei um array para salvar as cores de cada quadrado
+  for (let contar = 0; contar < quadrados.length; contar += 1) {
+   //console.log(quadrados[contar].style.backgroundColor);
+   // se eu colocar esse for fora da função, ela só vai ler uma vez e vai ler os quadrados com as cores iniciais, que é tudo branco. Ele precisa estar na função do pintar, porque assim a cada quadrado pintado, ele fará uma nova verificação nas cores.
+   arrayDeCores.push(quadrados[contar].style.backgroundColor); // aqui a cada nova iteração, o for irá verificar todos os quadrados e recriar o array com as cores atualizadas
+  }
+  //console.log(arrayDeCores);
+  localStorage.setItem('pixelBoard', JSON.stringify(arrayDeCores));
+ }
+
+const boardColorido = JSON.parse(localStorage.getItem('pixelBoard'));
+console.log(boardColorido);// só aparece quando atualizo a página
+
+if (boardColorido !== null) {
+  for (let cont = 0; cont < quadrados.length; cont += 1) {
+   quadrados[cont].style.backgroundColor = boardColorido[cont];
+  }
+} //  aqui que eu, de fato, atribuo as cores salvas ao quadro, do contrário ela fica salva no localStorage, mas eu não atribuo a informação à nada quando atualizo a página
 
 function limparQuadro() {
   for (let contador = 0; contador < quadrados.length; contador += 1) {
@@ -99,17 +116,5 @@ const pintar = quadroPixels.addEventListener('click', pintandoQuadro);
 
 const limpar = botaoLimpar.addEventListener('click', limparQuadro);
 
-// const quadroCompletoSalvo = JSON.parse(localStorage.getItem('pixelBoard'));
-
-console.log(quadroPixels.innerHTML);
-console.log(quadrados[0].style.backgroundColor);
-
-const quadroPintado = Object.assign({}, quadrados);
-localStorage.setItem('pixelBoard', JSON.stringify(quadroPintado));
-//console.log(quadroPintado.innerHtml) 
- 
-for (let contador = 0; contador < quadrados.length; contador += 1) {
-  console.log(quadrados[contador].innerHTML);
-}
 
 
