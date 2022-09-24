@@ -91,7 +91,7 @@ function pintandoQuadro(evento) {
   for (let contar = 0; contar < quadrados.length; contar += 1) {
     // console.log(quadrados[contar].style.backgroundColor);
     // se eu colocar esse for fora da função, ela só vai ler uma vez e vai ler os quadrados com as cores iniciais, que é tudo branco. Ele precisa estar na função do pintar, porque assim a cada quadrado pintado, ele fará uma nova verificação nas cores.
-   arrayDeCores.push(quadrados[contar].style.backgroundColor); // aqui a cada nova iteração, o for irá verificar todos os quadrados e recriar o array com as cores atualizadas
+    arrayDeCores.push(quadrados[contar].style.backgroundColor); // aqui a cada nova iteração, o for irá verificar todos os quadrados e recriar o array com as cores atualizadas
   }
   // console.log(arrayDeCores);
   localStorage.setItem('pixelBoard', JSON.stringify(arrayDeCores));
@@ -113,24 +113,37 @@ function limparQuadro() {
   }
 }
 
+function validaQuantidadeMinEMax() {
+  let quantidade = inputBoard.value;
+  if (quantidade < 5) {
+    alert('O valor mínimo é 5');
+    quantidade = 5;
+  }
+  if (quantidade > 50) {
+    alert('O valor máximo é 50');
+    quantidade = 50;
+  }
+  return quantidade;
+}
+
 function gridSecaoLinhas() {
-  const quantidade = (inputBoard.value);
   quadroPixels.style.display = 'block';
+  const quantidade = validaQuantidadeMinEMax();
   for (let index = 1; index <= quantidade; index += 1) {
     const secaoLinha = document.createElement('secao');
     secaoLinha.style.display = 'flex';
     quadroPixels.appendChild(secaoLinha);  
-    for (let index = 1; index <= quantidade; index += 1) {
+    for (let index2 = 1; index2 <= quantidade; index2 += 1) {
       divPixels = document.createElement('div');
       divPixels.className = 'pixel';
       backgroundColor = 'white';
       secaoLinha.appendChild(divPixels);
+    }
   }
-}
 }
 
 function apagaPixels(array) {
-  for (let index = array.length -1; index >= 0; index -= 1) { // eu não sei direito por que só funciona decrementando, tem a ver com o que perguntei para o Fransuelio no Slack e com a explicação do course, mas ainda não entendi 100%, só sei que incrementando normalmente não apaga todos os pixels.
+  for (let index = array.length - 1; index >= 0; index -= 1) { // eu não sei direito por que só funciona decrementando, tem a ver com o que perguntei para o Fransuelio no Slack e com a explicação do course, mas ainda não entendi 100%, só sei que incrementando normalmente não apaga todos os pixels.
     quadroPixels.removeChild(array[index]);
     // console.log(array);
   }
@@ -159,4 +172,3 @@ const pintar = quadroPixels.addEventListener('click', pintandoQuadro);
 const limpar = botaoLimpar.addEventListener('click', limparQuadro);
 
 const gerarNovoBoard = botaoVQV.addEventListener('click', gerandoBoardNovo);
-
