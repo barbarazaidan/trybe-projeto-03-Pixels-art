@@ -27,10 +27,10 @@ divCor3.style.backgroundColor = 'deepskyblue';
 divCor4.style.backgroundColor = 'lime';
 
 function geradorDeCores() {
-  const cor2 = parseInt(Math.random() * 255);
-  const cor3 = parseInt(Math.random() * 255);
-  const cor4 = parseInt(Math.random() * 255);
-  const corFinal = 'rgb(' + cor2 + ', ' + cor3 + ', ' + cor4 + ')';
+  const cor2 = parseInt(Math.random() * 255, 10);
+  const cor3 = parseInt(Math.random() * 255, 10);
+  const cor4 = parseInt(Math.random() * 255, 10);
+  const corFinal = `rgb(${cor2}, ${cor3}, ${cor4})`;
   return corFinal;
 }
 
@@ -47,7 +47,7 @@ function coresAleatorias() {
   localStorage.setItem('colorPalette', JSON.stringify(paletaCompleta));
 }
 
-const botaoDoClick = botaoCores.addEventListener('click', coresAleatorias);
+botaoCores.addEventListener('click', coresAleatorias);
 
 const paletaSalva = JSON.parse(localStorage.getItem('colorPalette'));
 // console.log (paletaSalva);
@@ -62,7 +62,7 @@ let divPixels; // Por que dá undefined quando coloco dentro do for?
 for (let index2 = 1; index2 <= 20; index2 += 1) {
   divPixels = document.createElement('div');
   divPixels.className = 'pixel';
-  backgroundColor = 'white';
+  divPixels.style.backgroundColor = 'white';
   quadroPixels.appendChild(divPixels);
 }
 
@@ -84,7 +84,7 @@ function selecionandoCorDaPaleta(evento) {
 function pintandoQuadro(evento) {
   const quadroSelecionado = evento.target;
   // console.log(corComSelected[0])
-  let corAtual = corComSelected[0].style.backgroundColor;
+  const corAtual = corComSelected[0].style.backgroundColor;
   // console.log (corAtual);
   quadroSelecionado.style.backgroundColor = corAtual;
   const arrayDeCores = []; // criei um array para salvar as cores de cada quadrado
@@ -132,11 +132,11 @@ function gridSecaoLinhas() {
   for (let index = 1; index <= quantidade; index += 1) {
     const secaoLinha = document.createElement('secao');
     secaoLinha.style.display = 'flex';
-    quadroPixels.appendChild(secaoLinha);  
+    quadroPixels.appendChild(secaoLinha);
     for (let index2 = 1; index2 <= quantidade; index2 += 1) {
       divPixels = document.createElement('div');
       divPixels.className = 'pixel';
-      backgroundColor = 'white';
+      divPixels.style.backgroundColor = 'white';
       secaoLinha.appendChild(divPixels);
     }
   }
@@ -165,10 +165,10 @@ function gerandoBoardNovo(event) {
   analisaInput();
 }
 
-const corSelecionada = secaoPaletaCores.addEventListener('click', selecionandoCorDaPaleta);
+secaoPaletaCores.addEventListener('click', selecionandoCorDaPaleta);
 
-const pintar = quadroPixels.addEventListener('click', pintandoQuadro);
+quadroPixels.addEventListener('click', pintandoQuadro);
 
-const limpar = botaoLimpar.addEventListener('click', limparQuadro);
+botaoLimpar.addEventListener('click', limparQuadro);
 
-const gerarNovoBoard = botaoVQV.addEventListener('click', gerandoBoardNovo);
+botaoVQV.addEventListener('click', gerandoBoardNovo);
