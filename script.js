@@ -9,6 +9,8 @@ const quadroPixels = document.getElementById('pixel-board');
 const corComSelected = document.getElementsByClassName('selected');
 const botaoLimpar = document.getElementById('clear-board');
 const quadrados = document.getElementsByClassName('pixel');
+const inputBoard = document.getElementById('board-size');
+const botaoVQV = document.getElementById('generate-board');
 
 // const pixelDoQuadro = document.getElementsByClassName('pixel');
 // console.log(secaoPaletaCores);
@@ -111,8 +113,50 @@ function limparQuadro() {
   }
 }
 
+function gridSecaoLinhas() {
+  const quantidade = (inputBoard.value);
+  quadroPixels.style.display = 'block';
+  for (let index = 1; index <= quantidade; index += 1) {
+    const secaoLinha = document.createElement('secao');
+    secaoLinha.style.display = 'flex';
+    quadroPixels.appendChild(secaoLinha);  
+    for (let index = 1; index <= quantidade; index += 1) {
+      divPixels = document.createElement('div');
+      divPixels.className = 'pixel';
+      backgroundColor = 'white';
+      secaoLinha.appendChild(divPixels);
+  }
+}
+}
+
+function apagaPixels(array) {
+  for (let index = array.length -1; index >= 0; index -= 1) { // eu não sei direito por que só funciona decrementando, tem a ver com o que perguntei para o Fransuelio no Slack e com a explicação do course, mas ainda não entendi 100%, só sei que incrementando normalmente não apaga todos os pixels.
+    quadroPixels.removeChild(array[index]);
+    // console.log(array);
+  }
+}
+
+function analisaInput() {
+  const quantidade = inputBoard.value;
+  if (quantidade === '') {
+    alert('Board inválido!');
+  } else {
+    apagaPixels(quadrados);
+    gridSecaoLinhas();
+  }
+  // console.log(typeof quantidade);
+}
+
+function gerandoBoardNovo(event) {
+  event.preventDefault();
+  analisaInput();
+}
+
 const corSelecionada = secaoPaletaCores.addEventListener('click', selecionandoCorDaPaleta);
 
 const pintar = quadroPixels.addEventListener('click', pintandoQuadro);
 
 const limpar = botaoLimpar.addEventListener('click', limparQuadro);
+
+const gerarNovoBoard = botaoVQV.addEventListener('click', gerandoBoardNovo);
+

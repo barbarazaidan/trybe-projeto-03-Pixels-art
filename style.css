@@ -45,7 +45,7 @@ h1 {
   height: max-content;
   width: max-content;
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: repeat(5, auto);
   margin: 0 0 30px 20px;
 }
 
