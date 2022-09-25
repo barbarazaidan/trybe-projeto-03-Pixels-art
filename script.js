@@ -1,3 +1,5 @@
+// o LOCALSTORAGE recria as coisas com base nos dados que ele salvou na memória. Assim se eu quiser manter as mesmas cores do quadro, eu tenho que pintá-lo de novo quando a página recarregar me baseando no localstorage. Da mesma forma, se eu quiser manter o tamanho do novo board de pixels, eu tenho que recriá-lo com base em algum número salvo.
+
 const secaoPaletaCores = document.getElementById('color-palette');
 const divPaletaCores = document.getElementsByClassName('color');
 const botaoCores = document.getElementById('button-random-color');
@@ -98,7 +100,7 @@ function pintandoQuadro(evento) {
 }
 
 const boardColorido = JSON.parse(localStorage.getItem('pixelBoard'));
-console.log(boardColorido);// só aparece quando atualizo a página
+// console.log(boardColorido);// só aparece quando atualizo a página
 
 if (boardColorido !== null) {
   for (let cont = 0; cont < quadrados.length; cont += 1) {
@@ -111,6 +113,37 @@ function limparQuadro() {
     quadrados[contador].style.backgroundColor = 'white';
     localStorage.removeItem('pixelBoard'); // aqui ele apaga o local storage que tem a chave pixelBoard e mantém o quadro limpo caso a pessoa recarregue
   }
+}
+
+function apagaPixels(array) {
+  for (let index = array.length - 1; index >= 0; index -= 1) { // eu não sei direito por que só funciona decrementando, tem a ver com o que perguntei para o Fransuelio no Slack e com a explicação do course, mas ainda não entendi 100%, só sei que incrementando normalmente não apaga todos os pixels.
+    (array[index]).remove();
+    // quadroPixels.removeChild(array[index]); Modifiquei essa parte do código, porque depois que ativava o localStorage com o novo board, que tem seções e divs, o JS não identifica mais os quadrados como filhos de quadroPixels e sim como netos, aí o programa quebrava.
+    // console.log(array);
+  }
+}
+
+const novoBoard = JSON.parse(localStorage.getItem('boardSize'));
+// console.log(novoBoard);
+
+function salvaNovoBoard() {
+  quadroPixels.style.display = 'block';
+  for (let index = 1; index <= novoBoard; index += 1) {
+    const secaoLinha = document.createElement('secao');
+    secaoLinha.style.display = 'flex';
+    quadroPixels.appendChild(secaoLinha);
+    for (let index2 = 1; index2 <= novoBoard; index2 += 1) {
+      divPixels = document.createElement('div');
+      divPixels.className = 'pixel';
+      divPixels.style.backgroundColor = 'white';
+      secaoLinha.appendChild(divPixels);
+    }
+  }
+}
+
+if (novoBoard !== null) {
+  apagaPixels(quadrados);
+  salvaNovoBoard();
 }
 
 function validaQuantidadeMinEMax() {
@@ -140,13 +173,7 @@ function gridSecaoLinhas() {
       secaoLinha.appendChild(divPixels);
     }
   }
-}
-
-function apagaPixels(array) {
-  for (let index = array.length - 1; index >= 0; index -= 1) { // eu não sei direito por que só funciona decrementando, tem a ver com o que perguntei para o Fransuelio no Slack e com a explicação do course, mas ainda não entendi 100%, só sei que incrementando normalmente não apaga todos os pixels.
-    quadroPixels.removeChild(array[index]);
-    // console.log(array);
-  }
+  localStorage.setItem('boardSize', JSON.stringify(quantidade));
 }
 
 function analisaInput() {
@@ -158,6 +185,7 @@ function analisaInput() {
     gridSecaoLinhas();
   }
   // console.log(typeof quantidade);
+  console.log(quadrados);
 }
 
 function gerandoBoardNovo(event) {
