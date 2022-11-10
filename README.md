@@ -5,7 +5,10 @@ O objetivo do projeto é implementar um editor de arte com pixels em que a pesso
 
 https://github.com/barbarazaidan/projeto-3-trybe/blob/main/art-with-pixels.gif
 
-## Detalhes do projeto:
+## Detalhes do projeto
+
+Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da Trybe):
+
 1 - Adicione à página o título "Paleta de Cores".
 
 > A página deve conter o título "Paleta de Cores"
