@@ -57,8 +57,6 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 > Os pixels, ao serem clicados, devem ter sua cor e posição salvas no localStorage. Quando recarregar a página, o quadro deve ser recuperado a partir do que foi salvo no localStorage.
 
-Requisitos Bônus
-
 13 - Crie um input que permita à pessoa usuária preencher um novo tamanho para o quadro de pixels.
 
 > A página deve conter um input para que a pessoa usuária possa definir o tamanho do quadro de pixels
@@ -71,6 +69,6 @@ Requisitos Bônus
 
 > O tamanho do board deve ser mantido ao recarregar a página usando localStorage
 
-#### Sobre o curso da Trybe
+## Sobre o curso da Trybe
 O programa total de estudo conta com mais de 1.500 horas de aulas presenciais e online,divididas ao longo de 12 meses. O conteúdo aborda introdução ao desenvolvimento de software, front-end, back-end, ciência da computação, engenharia de software, metodologias ágeis e habilidades comportamentais.
 
