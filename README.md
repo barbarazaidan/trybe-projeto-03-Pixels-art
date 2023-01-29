@@ -57,6 +57,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 > Os pixels, ao serem clicados, devem ter sua cor e posição salvas no localStorage. Quando recarregar a página, o quadro deve ser recuperado a partir do que foi salvo no localStorage.
 
+REQUISITOS BÔNUS
+
 13 - Crie um input que permita à pessoa usuária preencher um novo tamanho para o quadro de pixels.
 
 > A página deve conter um input para que a pessoa usuária possa definir o tamanho do quadro de pixels
