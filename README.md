@@ -19,6 +19,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **2 - Adicione à página uma paleta contendo quatro cores distintas**
 
 <details><summary>Detalhes</summary>
@@ -28,6 +30,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 **3 - Adicione a cor preta como a primeira cor da paleta de cores**
 
@@ -39,6 +43,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **4 - Adicione um botão para gerar cores aleatórias para a paleta de cores**
 
 <details><summary>Detalhes</summary>
@@ -48,6 +54,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 **5 - Implemente uma função usando localStorage para que a paleta de cores gerada aleatoriamente seja mantida após recarregar a página**
 
@@ -59,6 +67,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **6 - Adicione à página um quadro contendo 25 pixels**
 
 <details><summary>Detalhes</summary>
@@ -68,6 +78,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 **7 - Faça com que cada pixel do quadro tenha largura e altura de 40 pixels e borda preta de 1 pixel de espessura**
 
@@ -79,6 +91,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **8 - Defina a cor preta como cor inicial da paleta de cores**
 
 <details><summary>Detalhes</summary>
@@ -88,6 +102,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 **9 - Crie uma função para selecionar uma cor na paleta de cores e preencha os pixels no quadro**
 
@@ -99,6 +115,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **10 - Crie uma função que permita preencher um pixel do quadro com a cor selecionada na paleta de cores**
 
 <details><summary>Detalhes</summary>
@@ -108,6 +126,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 **11 - Crie um botão que retorne a cor do quadro para a cor inicial**
 
@@ -119,6 +139,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **12 - Crie uma função para salvar e recuperar o seu desenho atual no localStorage**
 
 <details><summary>Detalhes</summary>
@@ -128,6 +150,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 REQUISITOS BÔNUS
 
@@ -141,6 +165,8 @@ REQUISITOS BÔNUS
 </p>
 </details>
 
+---
+
 **14 - Crie uma função que limite o tamanho mínimo e máximo do quadro de pixels**
 
 <details><summary>Detalhes</summary>
@@ -151,6 +177,8 @@ REQUISITOS BÔNUS
 </p>
 </details>
 
+---
+
 **15 - Crie uma função para manter o tamanho novo do board ao recarregar a página**
 
 <details><summary>Detalhes</summary>
@@ -160,6 +188,8 @@ REQUISITOS BÔNUS
 
 </p>
 </details>
+
+---
 
 ## Sobre o curso da Trybe
 O programa total de estudo conta com mais de 1.500 horas de aulas presenciais e online,divididas ao longo de 12 meses. O conteúdo aborda introdução ao desenvolvimento de software, front-end, back-end, ciência da computação, engenharia de software, metodologias ágeis e habilidades comportamentais.
